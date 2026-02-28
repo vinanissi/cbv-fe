@@ -1,0 +1,36 @@
+{
+  "projectType": "CF_APP",
+  "environments": {
+    "DEV": {
+      "name": "Development",
+      "config": {
+        "route": "*.example-dev.com/*",
+        "zone": "example-dev.com",
+        "debug": true
+      }
+    },
+    "STAGING": {
+      "name": "Staging",
+      "config": {
+        "route": "*.example-staging.com/*",
+        "zone": "example-staging.com",
+        "debug": false
+      }
+    },
+    "PROD": {
+      "name": "Production",
+      "config": {
+        "route": "*.example.com/*",
+        "zone": "example.com",
+        "debug": false
+      }
+    }
+  },
+  "activeEnvironment": "DEV",
+  "gitBranches": {
+    "DEV": "dev",
+    "STAGING": "staging",
+    "PROD": "main"
+  }
+}
+

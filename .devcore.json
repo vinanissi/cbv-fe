@@ -1,0 +1,21 @@
+{
+  "name": "",
+  "type": "CF_APP",
+  "version": "1.0.0",
+  "deploy": {
+    "tool": "wrangler",
+    "mode": "worker"
+  },
+  "envs": {
+    "DEV": {
+      "name": "dev"
+    },
+    "STAGING": {
+      "name": "staging"
+    },
+    "PROD": {
+      "name": "prod"
+    }
+  }
+}
+

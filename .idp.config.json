@@ -1,0 +1,11 @@
+{
+  "projectType": "CF_APP",
+  "version": "1.0.0",
+  "created": "",
+  "idpVersion": "3.26",
+  "metadata": {
+    "description": "Cloudflare Workers or Pages application deployed via Wrangler CLI",
+    "template": "_CF_APP_TEMPLATE"
+  },
+  "projectName": "CBV_FE"
+}
