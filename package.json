@@ -1,28 +1,30 @@
 {
-  "name": "cf-app-template",
+  "name": "cbv_fe",
   "version": "1.0.0",
-  "description": "Cloudflare Workers or Pages application deployed via Wrangler CLI",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "build": "npm run build:worker",
-    "build:worker": "echo 'Build script - customize for your project'",
-    "deploy": "wrangler deploy",
-    "deploy:dev": "wrangler deploy --env dev",
-    "deploy:staging": "wrangler deploy --env staging",
-    "deploy:prod": "wrangler deploy --env prod",
-    "test": "echo 'Tests - customize for your project'"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy:dev": "npm run build && wrangler pages deploy dist --env dev",
+    "deploy:staging": "npm run build && wrangler pages deploy dist --env staging",
+    "deploy:prod": "npm run build && wrangler pages deploy dist --env prod"
   },
-  "keywords": [
-    "cf_app",
-    "cloudflare",
-    "workers",
-    "wrangler",
-    "idp"
-  ],
-  "author": "",
-  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0"
+  },
   "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
     "wrangler": "^3.0.0"
   }
 }
-

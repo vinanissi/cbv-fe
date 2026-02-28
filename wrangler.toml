@@ -1,29 +1,15 @@
-# Cloudflare Workers Configuration
-# Managed by IDP Universal Workspace Manager
-
-name = "cf-app-template"
+name = "cbv_fe"
 compatibility_date = "2024-01-01"
-main = "src/index.js"
+pages_build_output_dir = "dist"
 
-# Environment-specific configurations
 [env.dev]
-name = "cf-app-template-dev"
-route = { pattern = "*.example-dev.com/*", zone_name = "example-dev.com" }
+name = "cbv_fe-dev"
+pages_build_output_dir = "dist"
 
 [env.staging]
-name = "cf-app-template-staging"
-route = { pattern = "*.example-staging.com/*", zone_name = "example-staging.com" }
+name = "cbv_fe-staging"
+pages_build_output_dir = "dist"
 
 [env.prod]
-name = "cf-app-template-prod"
-route = { pattern = "*.example.com/*", zone_name = "example.com" }
-
-# KV Namespaces (example - customize as needed)
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "your-kv-namespace-id"
-
-# Environment Variables (example)
-# [vars]
-# ENVIRONMENT = "production"
-
+name = "cbv_fe-prod"
+pages_build_output_dir = "dist"
