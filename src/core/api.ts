@@ -1,26 +1,26 @@
-import { config } from './config'
+const API_URL = import.meta.env.VITE_API_URL
+const API_KEY = import.meta.env.VITE_API_KEY
 
-export async function callApi<T = unknown>(action: string, payload?: object): Promise<T> {
-  const url = config.apiUrl
-  const key = config.apiKey
-
-  if (!url) {
+export async function callApi(action: string, data: Record<string, any> = {}) {
+  if (!API_URL) {
     throw new Error('VITE_API_URL is not configured')
   }
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(key && { 'X-API-Key': key }),
-    },
-    body: JSON.stringify({ action, ...payload }),
+  const params = new URLSearchParams({
+    action,
+    key: API_KEY,
+    ...Object.fromEntries(
+      Object.entries(data).map(([k, v]) => [k, String(v)])
+    ),
   })
 
-  if (!res.ok) {
-    throw new Error(`API error: ${res.status} ${res.statusText}`)
+  const response = await fetch(`${API_URL}?${params.toString()}`, {
+    method: 'GET',
+  })
+
+  if (!response.ok) {
+    throw new Error(`Network error: ${response.status}`)
   }
 
-  const data = await res.json()
-  return data as T
+  return await response.json()
 }
